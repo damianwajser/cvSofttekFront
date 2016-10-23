@@ -7,16 +7,10 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
 
         // For unmatched routes
-        $urlRouterProvider.otherwise('/login');
+        $urlRouterProvider.otherwise('/tecnologias');
 
         // Application routes
         $stateProvider
-            .state('login', {
-                url: '/login',
-                controller:'LoginCtrl',
-                controllerAs: 'login',
-                templateUrl: 'templates/login.html'
-            })
             .state('base', {
                 abstract:false,
                 controller:'MasterCtrl',
@@ -31,7 +25,7 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             })
             .state('base.tecnologiasNivel', {
                 url: '/tecnologiasNivel',
-                params:{'tecno':''},        
+                params:{'tecno':''},
                 controller:'TecnologiasNivelController',
                 templateUrl: 'templates/Tecnologias/TecnologiasNivel.html'
             })
