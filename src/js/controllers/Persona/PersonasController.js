@@ -1,7 +1,7 @@
 angular.module('RDash')
-    .controller('TecnologiasController', ['$scope', '$rootScope', '$state', 'PersonService', TecnologiasController]);
+    .controller('PersonasController', ['$scope', '$rootScope', '$state', 'PersonService', PersonasController]);
 
-function TecnologiasController($scope, $rootScope, $state, PersonService) {
+function PersonasController($scope, $rootScope, $state, PersonService) {
     $rootScope.title = "Personas";
     $rootScope.route = "";
 
@@ -11,6 +11,9 @@ function TecnologiasController($scope, $rootScope, $state, PersonService) {
     $scope.count = {};
     $scope.actual = 1;
 
+    $scope.info = function(){
+      $state.go("persona");
+    }
     $scope.filtrar = function() {
         $scope.orFilter = $scope.filter;
         PersonService.getCountByTechs($scope.actual, $scope.orFilter.split(",")).then(function(response) {
