@@ -1,5 +1,5 @@
 angular.module('RDash', ['ui.bootstrap', 'ui.router', 'ngCookies'])
-    .constant('apiUrl', '//localhost:8000/')
+    .constant('apiUrl', '//localhost:8080/api/')
     //.constant('apiUrl', '//localhost:3000/')
     .constant('inlineOptions', {
         customClass: getDayClass,

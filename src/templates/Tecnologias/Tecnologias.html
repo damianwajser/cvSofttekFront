@@ -1,14 +1,28 @@
 <div class="row">
-  <div class="col-md-push-4 col-md-4">
-		<rd-widget>
-        Que desafio queres realizar?
-      <rd-widget-body>
-        <div class="row">
-          <div class="col-md-4" ng-repeat="t in tecnologias"  ng-click="elegirNivel(t)">
-            <img src="{{t.img}}">
-          </div>
-        </div>
-			</rd-widget-body>
-		</rd-widget>
-	</div>
+    <div class="col-lg-12">
+        Filter : <input type="text" ng-model="filter"/> <button ng-click="filtrar()">Filtrar</button>
+        <rd-widget>
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <th class="widget-header">Nombre</th>
+                        <th class="widget-header">Ver Mas</th>
+                        <tr ng-repeat="person in persons">
+                            <td>{{person.name}}</td>
+                            <td ng-click="info(person.id)"><span class="text-success"><i class="fa fa-plus-circle"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <rd-widget-footer>
+                <ul class="pagination pagination-sm pull-right">
+                    <li><a href="#" ng-click="back()">&laquo;</a></li>
+                    <li> <a href="#">{{actual}}/{{count.cantPaginas}}</a></li>
+                    <li><a href="#" ng-click="next()">&raquo;</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </rd-widget-footer>
+        </rd-widget>
+    </div>
 </div>

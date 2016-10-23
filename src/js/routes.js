@@ -7,7 +7,7 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
 
         // For unmatched routes
-        $urlRouterProvider.otherwise('/tecnologias');
+        $urlRouterProvider.otherwise('/personas');
 
         // Application routes
         $stateProvider
@@ -18,16 +18,10 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 templateUrl: 'templates/layout.html'
             })
 //-----------------------------------------------------------------------------
-            .state('base.tecnologias', {
-                url: '/tecnologias',
-                controller:'TecnologiasController',
-                templateUrl: 'templates/Tecnologias/Tecnologias.html'
-            })
-            .state('base.tecnologiasNivel', {
-                url: '/tecnologiasNivel',
-                params:{'tecno':''},
-                controller:'TecnologiasNivelController',
-                templateUrl: 'templates/Tecnologias/TecnologiasNivel.html'
+            .state('base.personas', {
+                url: '/personas',
+                controller:'PersonasController',
+                templateUrl: 'templates/Personas/Personas.html'
             })
     }
 ]);
