@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-push-3 col-md-6">
+		<rd-widget>
+        Que Nivel tenes?
+      <rd-widget-body>
+        <div class="row">
+          <div class="col-md-4" ng-repeat="t in niveles">
+            <button class="btn btn-primary btn-md" ng-model="radioModel" uib-btn-checkbox>{{t.label}}</button>
+          </div>
+        </div>
+        {{radioModel}}
+			</rd-widget-body>
+		</rd-widget>
+	</div>
+</div>
