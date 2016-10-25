@@ -11,8 +11,11 @@ function PersonasController($scope, $rootScope, $state, PersonService) {
     $scope.count = {};
     $scope.actual = 1;
 
-    $scope.info = function(){
-      $state.go("persona");
+    $scope.info = function(id) {
+        $state.go("base.persona", {
+            id: id,
+            tech:  $scope.orFilter
+        });
     }
     $scope.filtrar = function() {
         $scope.orFilter = $scope.filter;
@@ -24,22 +27,21 @@ function PersonasController($scope, $rootScope, $state, PersonService) {
         });
     };
 
-    $scope.next = function(){
-      if($scope.actual < $scope.count.cantPaginas){
-        $scope.actual ++;
-        PersonService.getByTechs($scope.actual, $scope.orFilter.split(",")).then(function(response) {
-            $scope.persons = response;
-        });
-      }
+    $scope.next = function() {
+        if ($scope.actual < $scope.count.cantPaginas) {
+            $scope.actual++;
+            PersonService.getByTechs($scope.actual, $scope.orFilter.split(",")).then(function(response) {
+                $scope.persons = response;
+            });
+        }
     }
 
-    $scope.back = function(){
-      if($scope.actual > 1){
-        console.log("actual: " + $scope.actual);
-        $scope.actual --;
-        PersonService.getByTechs($scope.actual, $scope.orFilter.split(",")).then(function(response) {
-            $scope.persons = response;
-        });
-      }
+    $scope.back = function() {
+        if ($scope.actual > 1) {
+            $scope.actual--;
+            PersonService.getByTechs($scope.actual, $scope.orFilter.split(",")).then(function(response) {
+                $scope.persons = response;
+            });
+        }
     }
 }

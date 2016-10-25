@@ -1,3 +1,6 @@
 #a{
   display: none;
 }
+#body {
+  background-color: red!important;
+}

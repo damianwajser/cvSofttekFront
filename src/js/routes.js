@@ -23,5 +23,11 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 controller:'PersonasController',
                 templateUrl: 'templates/Personas/Personas.html'
             })
+            .state('base.persona', {
+                url: '/persona',
+                controller:'PersonaController',
+                params:{'id':1, 'tech':''},
+                templateUrl: 'templates/Personas/Persona.html'
+            })
     }
 ]);

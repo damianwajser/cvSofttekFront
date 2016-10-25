@@ -6,6 +6,7 @@ function PersonService($http, $q, apiUrl) {
 
   var service = {};
   service.getAll = getAll;
+  service.findById = findById;
   service.getByTechs = getByTechs;
   service.getCountByTechs = getCountByTechs;
   return service;
@@ -35,7 +36,6 @@ function PersonService($http, $q, apiUrl) {
     for(tech in techs){
       techsQuery+="tech="+techs[tech]+"&";
     }
-    console.log(page);
     $http.get(apiUrl + resource +'/page/'+page+"?"+techsQuery).then(function(data) {
       q.resolve(data.data);
     }, function(error) {
